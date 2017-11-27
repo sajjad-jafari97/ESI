@@ -37,8 +37,14 @@ include('app.php');
     <title>ESI</title>
     <link rel="stylesheet" href="asset/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="icon" href="asset/image/photo.jpg" type="imagegif">
   </head>
   <body>
+    <div class="form-group bien ">
+
+
+    <h1 class="text-center">Bienvenue</h1>
+    </div>
 
 <div class="container">
 
@@ -48,44 +54,47 @@ include('app.php');
       <input type="text" class="form-control" id="depart" placeholder="depart" name="depart">
     </div>
 
-    <div class="form-group col-md-3 ">
-      <label for="arriver">Arriver</label>
-      <input type="text" class="form-control" id="arriver" placeholder="arriver" name="arriver">
-    </div>
+
     <div class="form-group col-md-3 ">
       <label for="hauteur">Hauteur</label>
       <input type="text" class="form-control" id="hauteur" placeholder="hauteur" name="hauteur" onkeyup="calcul()">
     </div>
+
+
+    <div class="form-group col-md-3 ">
+      <label for="profondeur">Profondeur</label>
+      <input type="text" class="form-control" id="profondeur" placeholder="profondeur" name="profondeur" onkeyup="calcul()">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="prix">Prix</label>
+      <input type="text" class="form-control" id="prix" placeholder="prix" name="prix" onkeyup="calcul()">
+    </div>
+    <div class="form-group col-md-3 ">
+      <label for="arriver">Arriver</label>
+      <input type="text" class="form-control" id="arriver" placeholder="arriver" name="arriver">
+    </div>
+
+
+
 
     <div class="form-group col-md-3 ">
       <label for="largeur">Largeur</label>
       <input type="text" class="form-control" id="largeur" placeholder="largeur" name="largeur" onkeyup="calcul()">
     </div>
 
+
     <div class="form-group col-md-3 ">
       <label for="nombre">Nombre</label>
-      <input type="text" class="form-control" id="nombre" placeholder="nombre" name="nombre">
-    </div>
-
-    <div class="form-group col-md-3 ">
-      <label for="profondeur">Profondeur</label>
-      <input type="text" class="form-control" id="profondeur" placeholder="profondeur" name="profondeur" >
-    </div>
-    <div class="form-group col-md-3">
-      <label for="prix">Prix</label>
-      <input type="text" class="form-control" id="prix" placeholder="prix" name="prix" onkeyup="calcul()">
+      <input type="text" class="form-control" id="nombre" placeholder="nombre" name="nombre" onkeyup="calcul()">
     </div>
       <div class=" form_group col-md-3 select">
-
-
     <select class="form-control form-control-lg"  name="horaires">
       <option>Matin</option>
       <option>Après_midi</option>
     </select>
-
       </div>
 
-      <div class="form-group center-block col-md-6">
+      <div class="form-group  col-md-6">
           <button type="submit" class="btn btn-success" name="submit">Valider</button>
       </div>
 

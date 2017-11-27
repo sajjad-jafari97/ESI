@@ -1,8 +1,4 @@
-.container{
 
-
-  
-}
 #arriver, #depart, #hauteur, #largeur, #nombre, #profondeur, #prix,{
 width: 50%
 }
@@ -17,11 +13,19 @@ label{
   color: white
 }
 
-.select{
-  margin-top: 25px
-}
+  .select{
+    margin-top: 25px
+  }
 body{
-  background-image: url(../image/back.jpg);
+  background-image: url(../image/background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+}
+.bien{
+  color: white;
+  margin: auto;
+
+}
+.bien h1{
+  font-size: 75px
 }
