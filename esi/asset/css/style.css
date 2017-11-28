@@ -2,12 +2,14 @@
 #arriver, #depart, #hauteur, #largeur, #nombre, #profondeur, #prix,{
 width: 50%
 }
+.dow{
+  margin-top: 15px
+}
 .container{
   margin-top: 50px
 }
-.button {
- margin-top: 25px;
- margin-left: 15px
+.btn{
+  margin-top: 15px
 }
 label{
   color: white
@@ -27,5 +29,5 @@ body{
 
 }
 .bien h1{
-  font-size: 75px
+  font-size: 7.5vw
 }

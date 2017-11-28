@@ -49,52 +49,59 @@ include('app.php');
 <div class="container">
 
   <form method="post">
-    <div class="form-group col-md-3">
+    <div class="form-group col-md-3 col-sm-3 col-xs-4">
       <label for="depart">Depart</label>
       <input type="text" class="form-control" id="depart" placeholder="depart" name="depart">
-    </div>
 
-
-    <div class="form-group col-md-3 ">
-      <label for="hauteur">Hauteur</label>
-      <input type="text" class="form-control" id="hauteur" placeholder="hauteur" name="hauteur" onkeyup="calcul()">
-    </div>
-
-
-    <div class="form-group col-md-3 ">
-      <label for="profondeur">Profondeur</label>
-      <input type="text" class="form-control" id="profondeur" placeholder="profondeur" name="profondeur" onkeyup="calcul()">
-    </div>
-    <div class="form-group col-md-3">
-      <label for="prix">Prix</label>
-      <input type="text" class="form-control" id="prix" placeholder="prix" name="prix" onkeyup="calcul()">
-    </div>
-    <div class="form-group col-md-3 ">
-      <label for="arriver">Arriver</label>
+      <label for="arriver" class="dow">Arriver</label>
       <input type="text" class="form-control" id="arriver" placeholder="arriver" name="arriver">
     </div>
 
 
+    <div class="form-group col-md-3 col-sm-3 col-xs-4">
+      <label for="hauteur">Hauteur</label>
+      <input type="text" class="form-control" id="hauteur" placeholder="hauteur" name="hauteur" onkeyup="calcul()">
+      <label for="largeur" class="dow">Largeur</label>
+      <input type="text" class="form-control " id="largeur" placeholder="largeur" name="largeur" onkeyup="calcul()">
+    </div>
 
 
-    <div class="form-group col-md-3 ">
+    <div class="form-group col-md-3 col-sm-3 col-xs-4">
+      <label for="profondeur">Profondeur</label>
+      <input type="text" class="form-control" id="profondeur" placeholder="profondeur" name="profondeur" onkeyup="calcul()">
+      <label for="nombre" class="dow">Nombre</label>
+      <input type="text" class="form-control " id="nombre" placeholder="nombre" name="nombre" onkeyup="calcul()">
+    </div>
+    <div class="form-group col-md-3 col-sm-3 col-xs-4">
+      <label for="prix">Prix</label>
+      <input type="text" class="form-control" id="prix" placeholder="prix" name="prix" onkeyup="calcul()">
+    </div>
+    <!-- <div class="form-group col-md-3 col-sm-3 col-xs-4">
+      <label for="arriver">Arriver</label>
+      <input type="text" class="form-control" id="arriver" placeholder="arriver" name="arriver">
+    </div> -->
+
+
+
+
+    <!-- <div class="form-group col-md-3 col-sm-3 col-xs-4">
       <label for="largeur">Largeur</label>
       <input type="text" class="form-control" id="largeur" placeholder="largeur" name="largeur" onkeyup="calcul()">
-    </div>
+    </div> -->
 
 
-    <div class="form-group col-md-3 ">
+    <!-- <div class="form-group col-md-3 col-sm-3 col-xs-4">
       <label for="nombre">Nombre</label>
       <input type="text" class="form-control" id="nombre" placeholder="nombre" name="nombre" onkeyup="calcul()">
-    </div>
-      <div class=" form_group col-md-3 select">
+    </div> -->
+      <div class=" form-group col-md-3 col-sm-3 col-xs-4 select">
     <select class="form-control form-control-lg"  name="horaires">
       <option>Matin</option>
       <option>Après_midi</option>
     </select>
       </div>
 
-      <div class="form-group  col-md-6">
+      <div class="form-group  col-md-6 col-sm-6 col-xs-12">
           <button type="submit" class="btn btn-success" name="submit">Valider</button>
       </div>
 
