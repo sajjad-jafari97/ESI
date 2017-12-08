@@ -5,6 +5,8 @@
      private $depart=NULL;
      private $hauteur=NULL;
      private $largeur=NULL;
+     private $longueur=NULL;
+     private $volume=NULL;
      private $prix =NULL;
      private $nombre=NULL;
      private $profondeur=NULL;
@@ -17,12 +19,15 @@
 
 
 
-     public function __construct($arriver,$depart,$hauteur,$largeur,$prix,$nombre,$profondeur,$horaires,$id_client,$genre,$date, $poids)
+     public function __construct($arriver,$depart,$hauteur,$largeur,$longueur,$volume,
+     $prix,$nombre,$profondeur,$horaires,$id_client,$genre,$date, $poids)
      {
        $this->setarriver($arriver);
        $this->setdepart($depart);
        $this->sethauteur($hauteur);
        $this->setlargeur($largeur);
+       $this->setlongueur($longueur);
+       $this->setvolume($volume);
        $this->setprix($prix);
        $this->setnombre($nombre);
        $this->setprofondeur($profondeur);
@@ -84,6 +89,12 @@
      public function setlargeur($largeur){
         $this->largeur=$largeur;
      }
+     public function setlongueur($longueur){
+        $this->longueur=$longueur;
+     }
+     public function setvolume($volume){
+        $this->volume=$volume;
+     }
      public function setprix($prix){
         $this->prix=$prix;
      }
@@ -118,6 +129,6 @@
     $ans=new Command("frans","jhj",12,34,56,6,34,12,1,12,34,12);
   //  $ques=new Question(1,"moi","sport",1);
   //  $ques->setanswer($ans);
-    var_dump($ans);
+
 
  ?>
