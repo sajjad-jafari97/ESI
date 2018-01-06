@@ -30,6 +30,10 @@ if(isset($_POST['submit'])){
 
   <link rel="icon" href="image/photo.jpg" type="imagegif">
   <style>
+
+  body{
+    background-color: #d0d6e0;
+  }
   #form{
     border: 1px ;
     margin-top: 50px;
@@ -71,7 +75,7 @@ if(isset($_POST['submit'])){
           <select id="destination" class="form-control form-control-lg" name="destination">
 
             <option>Porte de villepinte</option>
-            <option>Planet des congrès</option>
+            <option>Planete des congrès</option>
             <option>Porte de versailles</option>
 
 

@@ -1,6 +1,6 @@
 <?php
   include('api.php');
-  include('js/script.php');
+  include('js/jsPDF.php');
 
 
   if(isset($_POST['submit'])){
@@ -11,10 +11,12 @@
     VALUES (:conditionnement_coord,:total_coord,:destination_coord,:nomsalon_coord,:stand_coord,:date_coord,:horaires_coord,
       :nom,:prenom,:mail,:adresse,:ville,:pays,:telfix,:tel,:societe)');
 
+
+
     $result = $query->execute(
    array(
    ':conditionnement_coord' => $_POST['conditionnement_coord'],
-   ':total_coord' => $_POST['total_coord'],
+   ':total_coord' => intval($_POST['total_coord']),
    ':destination_coord' => $_POST['destination_coord'],
    ':nomsalon_coord' => $_POST['nomsalon_coord'],
    ':stand_coord' => $_POST['stand_coord'],
@@ -34,6 +36,9 @@
    )
 
    );
+
+  //  die(var_dump($result));
+  //  var_dump($_POST);
 
    ($result)
    ? print('<script>alert(" Vos informations ont été envoyées avec succès :) ")</script>')
@@ -60,6 +65,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="icon" href="image/photo.jpg" type="imagegif">
     <style>
+    body{
+      background-color: #d0d6e0;
+    }
   #form{
     border: 1px ;
     margin-top: 50px;
@@ -86,7 +94,7 @@
     font-size: 3.8vw
   }
   #hide{
-    display:none
+    display: none;
   }
   .table-bordered{
     width:50%;
@@ -176,49 +184,49 @@ table{
 
     <div class="form-group col-md-6 col-sm-6">
     <label for="usr">Nom:</label>
-    <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom"  >
+    <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom"  required>
     </div>
 
     <div class="form-group col-md-6 col-sm-6">
-    <label for="usr">Prènom:</label>
-    <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prènom"  >
+    <label for="usr">Prénom:</label>
+    <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prènom"  required>
     </div>
 
 
     <div class="form-group col-md-6 col-sm-6">
     <label for="usr">Mail:</label>
-    <input type="text" class="form-control" id="mail" name="mail" placeholder="Mail"  >
+    <input type="text" class="form-control" id="mail" name="mail" placeholder="Mail"  required>
     </div>
 
 
     <div class="form-group col-md-6 col-sm-6">
     <label for="usr">Adresse:</label>
-    <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse"  >
+    <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse" required >
     </div>
 
     <div class="form-group col-md-6 col-sm-6">
     <label for="usr">Ville:</label>
-    <input type="text" class="form-control" id="ville" name="ville" placeholder="Ville"  >
+    <input type="text" class="form-control" id="ville" name="ville" placeholder="Ville" required >
     </div>
 
     <div class="form-group col-md-6 col-sm-6">
     <label for="usr">Pays:</label>
-    <input type="text" class="form-control" id="pays" name="pays" placeholder="Pays"  >
+    <input type="text" class="form-control" id="pays" name="pays" placeholder="Pays" required >
     </div>
 
     <div class="form-group col-md-6 col-sm-6">
-    <label for="usr">Tél Fix:</label>
-    <input type="text" class="form-control" id="telfix" name="telfix" placeholder="Tél Fix"  >
+    <label for="usr">Tél Fixe:</label>
+    <input type="text" class="form-control" id="telfix" name="telfix" placeholder="Tél Fix" required >
     </div>
 
     <div class="form-group col-md-6 col-sm-6">
     <label for="usr">Tél:</label>
-    <input type="text" class="form-control" id="tel" name="tel" placeholder="Tél"  >
+    <input type="text" class="form-control" id="tel" name="tel" placeholder="Tél"  required>
     </div>
 
     <div class="form-group col-md-6 col-sm-6">
     <label for="usr">Société:</label>
-    <input type="text" class="form-control" id="societe" name="societe" placeholder="Société"  >
+    <input type="text" class="form-control" id="societe" name="societe" placeholder="Société" required >
     </div>
 
     <div class="form-group col-md-6 col-sm-6" id="hide">
@@ -257,11 +265,11 @@ table{
     <label for="total">Total</label>
     <input type="text" class="form-control" id="total" placeholder="total" name="total_coord" value="<?php echo $_GET['total'] ?>">
     </div>
-
+<!--
     <div class="form-group col-md-6 col-sm-6" id="hide">
     <label for="nombre">nombrel</label>
     <input type="text" class="form-control" id="nombre" placeholder="nombre" name="nombre">
-    </div>
+    </div> -->
 
 
     <div class="form-group  col-md-6 col-sm-6 col-xs-12 " id="btn">
@@ -277,10 +285,12 @@ table{
 
   </form>
 
+
   <script src="jquery-3.2.1.min.js">
 
  </script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"> </script>
+
   </body>
 
 </html>

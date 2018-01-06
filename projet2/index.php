@@ -1,5 +1,4 @@
 <?php
-// include('api.php');
 include('js/script.php');
 
 if(isset($_POST['submit'])){
@@ -24,12 +23,14 @@ if(isset($_POST['submit'])){
   <head>
     <meta charset="utf-8">
     <title>ESI</title>
-    <link rel="stylesheet" href="asset/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="icon" href="image/photo.jpg" type="imagegif">
   </head>
   <style media="screen">
 
+    body{
+      background-color: #d0d6e0;
+    }
 
     .bien{
 
@@ -78,12 +79,7 @@ if(isset($_POST['submit'])){
     #cond{
       display: none;
     }
-    @media only screen and (min-width:380px) and (max-width: 768px){
-      /*.inp{
-        width: 200%
-      }*/
 
-    }
 
   </style>
   <body>
@@ -97,13 +93,27 @@ if(isset($_POST['submit'])){
 
 
 
-  <form method="post"  >
+  <form method="post">
 
+    <div class="form-group col-md-12">
+      <label class="condition">Conditionnement</label>
+<select class="form-control form-control-lg conditionnement" id="conditionnement" name="conditionnement"  onchange="changeVal()" required >
+
+        <option></option>
+        <option>PALETTE</option>
+        <option>COLIS</option>
+        <option>CARTON</option>
+        <option>FARDEAU</option>
+        <option>AUTRE</option>
+
+      </select>
+
+    </div>
 
     <div class="form-group col-md-12">
 
       <label class="number">Nombre</label>
-      <input type="number" class="form-control" id="nombre" placeholder="nombre" name="nombre" required>
+      <input type="number" class="form-control nombre" id="nombre" placeholder="nombre" name="nombre" required>
     </div>
 
 
@@ -111,25 +121,8 @@ if(isset($_POST['submit'])){
     <div class="form-group  col-md-12">
         <button type="submit" class="btn btn-success" name="valid">Valider</button>
         </div>
-        <?php
-          if(isset($_POST['valid'])){
-            echo '<div class="form-group col-md-12">
-              <label class="condition">Conditionnement</label>
-              <select class="form-control form-control-lg" name="conditionnement" id="conditionnement">
-
-                <option>PALETTE</option>
-                <option>COLIS</option>
-                <option>CARTON</option>
-                <option>FARDEAU</option>
-                <option>AUTRE</option>
-
-              </select>
-
-            </div>';
 
 
-          }
-          ?>
 
     </div>
 
@@ -151,46 +144,49 @@ if(isset($_POST['submit'])){
 
    for($i=0;$i<$_POST["nombre"];$i++){
 
+     if ($i==5)
+        break;
+
 
 
 
      echo '<form  class="form form-inline container col-md-12 col-md-offset-1 col-xs-12 col-sm-offset-1 col-sm-12 "  method="post" >';
 
 
+     echo '<div id="'.$i.'" class="boite">';
 
-
-     echo'<div class="form-group col-md-2 col-sm-2 col-xs-6" onkeyup="calcul()" >
+     echo'<div class="form-group col-md-2 col-sm-2 col-xs-6 "  onkeyup="functionName()" >
 
      <label>Longueur(en m):</label>
-     <input type="number" class="inp"  placeholder="longueur" name="longueur"  id="longueur"   required>
+     <input type="text" class="inp longueur" id="longueur"  placeholder="longueur" name="longueur"   required>
      </div>
      ';
 
 
 
 
-     echo'<div class="form-group col-md-2 col-sm-2 col-xs-6" onkeyup="calcul()">
+     echo'<div class="form-group col-md-2 col-sm-2 col-xs-6" onkeyup="functionName()">
      <label>Largeur(en m):</label>
-     <input type="number" class="inp"   placeholder="largeur" name="largeur"   id="largeur"   required >
+     <input type="text" class="inp largeur" id="largeur"  placeholder="largeur" name="largeur"    required>
      </div>
      ';
 
-     echo'<div class="form-group col-md-2 col-sm-2 col-xs-6" onkeyup="calcul()">
+     echo'<div class="form-group col-md-2 col-sm-2 col-xs-6" onkeyup="functionName()">
      <label>Hauteur(en m):</label>
-     <input type="number" class="inp"   placeholder="hauteur" name="hauteur"   id="hauteur"   required >
+     <input type="text" class="inp hauteur" id="hauteur"  placeholder="hauteur" name="hauteur"   required>
      </div>
      ';
 
 
-     echo'<div class="form-group col-md-2 col-sm-2 col-xs-6" onkeyup="calcul()">
+     echo'<div class="form-group col-md-2 col-sm-2 col-xs-6" onkeyup="functionName()">
      <label>Volume(en m3):</label>
-     <input type="number" class="inp"   placeholder="volume" name="volume"     id="volume"      disabled >
+     <input type="text" class="inp volume" id="volume"  placeholder="volume" name="volume"       disabled >
      </div>
      ';
 
-     echo'<div class="form-group col-md-2 col-md-offset-0 col-sm-2 col-sm-offset-0 col-xs-6 col-xs-offset-3" onkeyup="calcul()">
+     echo'<div class="form-group col-md-2 col-md-offset-0 col-sm-2 col-sm-offset-0 col-xs-6 col-xs-offset-3" onkeyup="functionName()">
      <label>Poids en kg:</label>
-     <input type="number" class="inp"   placeholder="poids" name="poids"       id="poids"       required>
+     <input type="text" class="inp poids" id="poids"  placeholder="poids" name="poids"  disabled>
      </div>
      ';
 
@@ -201,17 +197,17 @@ if(isset($_POST['submit'])){
      echo "<br/>";
 
 
-  // echo '<a href="affiche.php" class="btn btn-primary btn-lg col-md-4 col-md-offset-4">OK</a>';
 
  }
 
-echo '
+echo '<input type="text" placeholder="Total" name="total" id="total" class="total"  onkeyup="functionName()">';
 
-<input type="text" placeholder="Total" name="total"  id="total"   onkeyup="calcul()">
+echo '<input type="text" class="cond" onkeyup="functionName()" id="cond" name="cond" >';
 
-';
- echo '<input type="text" onkeyup="calcul()" id="cond" name="cond">';
+
 echo '<input type="submit" value="Envoyer" class="btn btn-primary btn-lg col-md-2 col-md-offset-4" name="submit"  >';
+
+echo "</div>";
 echo "</form>";
 
 
@@ -224,7 +220,19 @@ echo "</form>";
   ?>
     </div>
   </div>
+  <script type="text/javascript">
+    functionName()
 
+let toto = sessionStorage.getItem("conditionnement")
+    if (toto) {
+      $('.cond').val(toto);
+    }
+
+    let sasa = sessionStorage.getItem("nombre")
+        if (sasa) {
+          $('.numb').val(sasa);
+        }
+  </script>
   </body>
 
 
